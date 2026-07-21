@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Specification_System.input
 {
-    internal class IoadInput
+    interface IoadInput
     {
+        public string[] load();
     }
 }
