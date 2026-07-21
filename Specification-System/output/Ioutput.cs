@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Specification_System.output
 {
-    internal class Ioutput
+    interface Ioutput
     {
+        public void Output();
     }
 }
