@@ -4,16 +4,17 @@ using System;
 
 namespace Specification_System
 {
-   class Program
+    class Program
     {
         static void Main()
         {
             //ModelBuilding m = new ModelBuilding();
             //m.L();
-            InputCsv lo = new InputCsv();
-            string[] rows = lo.load();
 
-            
+            InputCsv lo = new InputCsv();
+            List< string[]> rows = lo.load();
+             lo.loadRows(rows);
+
         }
     }
 }
