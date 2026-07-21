@@ -6,6 +6,6 @@ namespace Specification_System.input
 {
     interface IoadInput
     {
-        public List<string[]> load();
+        public List<string[]> load(string fileName);
     }
 }
