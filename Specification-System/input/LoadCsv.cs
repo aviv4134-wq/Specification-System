@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Specification_System.input
 {
-    class InputCsv : IoadInput
+    class InputCsv : IoadInput //for build
     {
 
-        public List<string[]> load()
+        public List<string[]> load(string fileName)
         {
-            string folderPath = Path.Combine("..", "..", "..", "modelbuild", "tenisStats.csv");
+            string folderPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelbuild", fileName));
             string[] allRows = File.ReadAllLines(folderPath);
 
             List<string[]> rows = new List<string[]>();
