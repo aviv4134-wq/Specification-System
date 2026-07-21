@@ -1,21 +1,31 @@
-﻿using System;
+﻿//using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
+using System.Reflection.Emit;
 using System.Text;
 
 namespace Specification_System.modelbuild
 {
-     class ModelBuilding
+    public class ModelBuilding
     {
-        public void L()
+        public void Train(List<Dictionary> rows, string targetColumn)
         {
-            
-            string folderPath = Path.Combine("..", "..", "..", "modelbuild", "tenisStats.csv"); 
-            string[] s =  File.ReadAllLines(folderPath);
-            string label = s[0].Split()[^1]; //take the first row spliteed an then take the last col
-            
+            int n = rows.Count();
+            var labels = rows.Select(row => row[targetColumn]).Distinct();
 
-            //foreach (string r in s)
-            //{ Console.WriteLine(r); }
-        } 
+            Dictionary<string, double> priors = new Dictionary<string, double>();
+
+            foreach (string each in labels)
+            {
+                double priors = rows.Where(g => g[targetColumn] == each).Count();
+                priors[each} = count / n;
+            }
+        }
     }
 }
+
+
+
+
+
+

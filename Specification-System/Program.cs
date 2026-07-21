@@ -1,7 +1,4 @@
 ﻿using Specification_System.input;
-using Specification_System.modelbuild;
-using System;
-
 namespace Specification_System
 {
    class Program
