@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Specification_System.validators
 {
-    internal class ValidatorCsv
+    internal class validCsv
     {
     }
 }

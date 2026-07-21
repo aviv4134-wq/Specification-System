@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Specification_System.input
 {
-    class LoadCsv : IoadInput
+    class InputCsv : IoadInput
     {
+
         public  string[] load()
         {
             string folderPath = Path.Combine("..", "..", "..", "modelbuild", "tenisStats.csv");
@@ -20,18 +21,26 @@ namespace Specification_System.input
             return label;
         }
 
-        public List<string> loadRows(string[] allRows)
-        {
-            List<string> onlyRows = new List<string>();
-            for (int i = 1; i < allRows.Length; i++ )
-            {
-                onlyRows.Add(allRows[i]);
-            }
-            return onlyRows;
+        //public List<Dictionary<string, string>> loadRows(string[] allRows)
+        //{
+            
+        //    List<Dictionary<string,string>> rows = new List<Dictionary<string,string>>();
+        //    foreach (string col in allRows)
+        //    {
+        //        Dictionary<string, string> row = new Dictionary<string, string>();
+        //        row.Add(col, "");
+                
+        //    }
+            
+        //    for (int i = 1; i < allRows.Length; i++ )
+        //    {
+        //        onlyRows.Add(allRows[i]);
+        //    }
+        //    return onlyRows;
 
 
 
-        }
+        //}
 
     }
 }

@@ -10,7 +10,7 @@ namespace Specification_System
             InputCsv lo = new InputCsv();
             string[] rows = lo.load();
 
-            Console.WriteLine(lo.loadRows(rows)[^1]); 
+            
         }
     }
 }
