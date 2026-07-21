@@ -7,40 +7,51 @@ namespace Specification_System.input
     class InputCsv : IoadInput
     {
 
-        public  string[] load()
+        public List<string[]> load()
         {
             string folderPath = Path.Combine("..", "..", "..", "modelbuild", "tenisStats.csv");
             string[] allRows = File.ReadAllLines(folderPath);
-            return allRows;
+
+            List<string[]> rows = new List<string[]>();
+            foreach (string row in allRows )
+            {
+                string[] rowSplited  = row.Split();
+                rows.Add(rowSplited);
+            }
+            return rows;
         }
 
         public string GetLabelName(string[] allRows)
         {
-           string[] colmos = allRows;
+            string[] colmos = allRows;
             string label = colmos[0].Split()[^1];
             return label;
         }
 
-        //public List<Dictionary<string, string>> loadRows(string[] allRows)
-        //{
+        public List<Dictionary<string, string>> loadRows(List<string[]> allRows)
+        {
+            string[] coloms = allRows[0];
             
-        //    List<Dictionary<string,string>> rows = new List<Dictionary<string,string>>();
-        //    foreach (string col in allRows)
-        //    {
-        //        Dictionary<string, string> row = new Dictionary<string, string>();
-        //        row.Add(col, "");
+            
+            List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
+            allRows.RemoveAt(0);
+
+            for(int j = 0;j < allRows.Count; j++)
+            {
+                Dictionary<string, string> row = new Dictionary<string, string>();
+                for (int i = 0; i < coloms.Length; i++)
+                {
+                    
+                    row.Add(coloms[i], allRows[j][i]);
+                    if (i == coloms.Length - 1)
+                    rows.Add(row);
+                    
+                }
                 
-        //    }
-            
-        //    for (int i = 1; i < allRows.Length; i++ )
-        //    {
-        //        onlyRows.Add(allRows[i]);
-        //    }
-        //    return onlyRows;
+            }
 
-
-
-        //}
+            return rows;
+        }
 
     }
 }

@@ -6,6 +6,6 @@ namespace Specification_System.input
 {
     interface IoadInput
     {
-        public string[] load();
+        public List<string[]> load();
     }
 }
