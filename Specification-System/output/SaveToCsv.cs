@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Text;
 
-namespace Specification_System.output
-{
-    internal class SaveToCsv
-    {
-    }
-}
+//namespace Specification_System.output
+//{
+//    class SaveToCsv : Ioutput
+//    {
+//        public void Output()
+//        {
+
+//        }
+//    }
+//}
