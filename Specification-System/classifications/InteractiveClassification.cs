@@ -1,4 +1,5 @@
 ﻿using Specification_System.input;
+using Specification_System.modelbuild;
 using Specification_System.output;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,15 @@ namespace Specification_System.classifications
 {
      class InteractiveClassification : Classification
     {
-        private Consule interactive = new Consule();
+        
 
-        public void Execute(List<Dictionary<string, string>> allRows,Tuple<string> model) //מקבל מודל אם כול השורות של הקבוץ הבונה כדי להשתמש בדיקט
+        public void Execute(List<Dictionary<string, string>> allRows, Tuple<List<string>, Dictionary<string, double>, Dictionary<Tuple<string, string, string>, double>, Dictionary<Tuple<string, string>, double>> model) //מקבל מודל אם כול השורות של הקבוץ הבונה כדי להשתמש בדיקט
         {
             
-
             foreach (Dictionary<string, string> row in allRows)
             {
-                
+                string labelResoult = modelBuilder.Predict(model, row);
+                consule.Output(labelResoult);
             }
         }
     }

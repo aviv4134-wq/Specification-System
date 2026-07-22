@@ -6,7 +6,7 @@ namespace Specification_System.output
 {
     class SaveToCsv : Ioutput
     {
-        public void Output()
+        public void Output<T>(T da)
         {
             
         }

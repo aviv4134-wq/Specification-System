@@ -6,8 +6,10 @@ namespace Specification_System.output
 {
     class Consule : Ioutput
     {
-        public void Output()
+        
+        public void Output<T>(T counsuleInput)
         {
+            Console.WriteLine(counsuleInput);
 
 
         }

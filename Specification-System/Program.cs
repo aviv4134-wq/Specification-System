@@ -1,4 +1,5 @@
-﻿using Specification_System.input;
+﻿using Specification_System.classifications;
+using Specification_System.input;
 using Specification_System.modelbuild;
 namespace Specification_System
 {
@@ -8,19 +9,22 @@ namespace Specification_System
         {
             //ModelBuilding m = new ModelBuilding();
             //m.L();
-            InputUser u = new InputUser();
-            InputCsv lo = new InputCsv();
-            List< string[]> rows = lo.load();
-            var l =  lo.loadRows(rows);
-            ModelBuilding a = new ModelBuilding();
-            Console.WriteLine("fdvcs");
-            var r = a.Train(l, "Play");
-            var model = a.Train(l, "Play");
-            foreach (var pair in model.Item1)
-            {
-                Console.WriteLine($"{pair}");
-            }
+            InteractiveClassification c = new InteractiveClassification();
 
+            InputUser u = new InputUser();
+            InputCsv inputCsv = new InputCsv();
+            
+            List< string[]>? allRows = inputCsv.load("tenisStats.csv");
+            if (allRows == null) return;
+            //string label = inputCsv.GetLabelName(allRows);
+            List<Dictionary<string, string>> alldicts = inputCsv.loadRows(allRows); 
+            ModelBuilding modelBuilder = new ModelBuilding();
+            
+            
+            //var model = modelBuilder.Train(alldicts, label);
+            Console.WriteLine(alldicts[1]["Outlook"]);
+            //modelBuilder.Predict(model, alldicts[1]);
+            
 
         }
     }
