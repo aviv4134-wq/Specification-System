@@ -1,4 +1,5 @@
 ﻿using Specification_System.input;
+using Specification_System.modelbuild;
 namespace Specification_System
 {
     class Program
@@ -9,10 +10,17 @@ namespace Specification_System
             //m.L();
             InputUser u = new InputUser();
             InputCsv lo = new InputCsv();
-            string filePath = "tenisStats.csv";
-            List< string[]> rows = lo.load(filePath);
-            List<Dictionary<string, string>> rowsUser =  u.LoadDict(rows);
-            //foreach (Dictionary<string,string> row in rowsUser ) Console.WriteLine(row["Outlook"]);
+            List< string[]> rows = lo.load();
+            var l =  lo.loadRows(rows);
+            ModelBuilding a = new ModelBuilding();
+            Console.WriteLine("fdvcs");
+            var r = a.Train(l, "Play");
+            var model = a.Train(l, "Play");
+            foreach (var pair in model.Item1)
+            {
+                Console.WriteLine($"{pair}");
+            }
+
 
         }
     }
