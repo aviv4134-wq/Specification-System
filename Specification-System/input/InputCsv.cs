@@ -36,14 +36,14 @@ namespace Specification_System.input
             }
         }
 
-        public string GetLabelName(string[] allRows)
+        public string GetLabelName(List<string[]> allRows)
         {
-            string[] colmos = allRows;
-            string label = colmos[0].Split()[^1];
+            string[] colmos = allRows[0];
+            string label = colmos[^1];
             return label;
         }
 
-        public List<Dictionary<string, string>> loadRows(List<string[]> allRows)
+        public List<Dictionary<string,string>> LoadToDicts(List<string[]> allRows)
         {
             string[] coloms = allRows[0];
             

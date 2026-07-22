@@ -7,19 +7,20 @@ using System.Text;
 
 namespace Specification_System.classifications
 {
-    class Classification
+    abstract class Classification
     {
-         protected Consule consule = new Consule();
-         protected ModelBuilding modelBuilder = new ModelBuilding();
+        protected Ioutput outputOption;
+        protected ModelBuilding modelBuilder;
 
-        public void Execute(List<Dictionary<string, string>> allRows, Tuple<string> model) //מקבל מודל אם כול השורות של הקבוץ הבונה כדי להשתמש בדיקט
+        public Classification(Ioutput output, ModelBuilding builder)
         {
-            
-
-            foreach (Dictionary<string, string> row in allRows)
-            {
-
-            }
+            outputOption = output;
+            modelBuilder = builder;
         }
+
+         //מקבל מודל אם כול השורות של הקבוץ הבונה כדי להשתמש בדיקט
+        
+            
+        
     }
 }

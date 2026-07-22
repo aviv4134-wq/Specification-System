@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Specification_System.output
 {
-    class Consule : Ioutput
+    class ConsuleShow : Ioutput
     {
         
         public void Output<T>(T counsuleInput)
