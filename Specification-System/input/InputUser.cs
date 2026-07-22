@@ -6,14 +6,7 @@ namespace Specification_System.input
 {
     class InputUser : IoadInput
     {
-        public List<string[]> load(string filePath)
-        {
-            
-            return new List<string[]>();
-
-        }
-
-        public List<Dictionary<string, string>> LoadDict(List<string[]> allRows)
+        public List<Dictionary<string, string>> LoadToDicts(List<string[]> allRows)
         {
             int FirstRowColom = 1;
             Console.WriteLine($".Model trained on {allRows.Count() - FirstRowColom} rows");
