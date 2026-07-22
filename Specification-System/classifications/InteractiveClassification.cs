@@ -9,7 +9,8 @@ namespace Specification_System.classifications
 {
      class InteractiveClassification : Classification
     {
-        
+        public InteractiveClassification (Ioutput output, ModelBuilding builder) : base(output, builder)
+        { }
 
         public void Execute(List<Dictionary<string, string>> allRows, Tuple<List<string>, Dictionary<string, double>, Dictionary<Tuple<string, string, string>, double>, Dictionary<Tuple<string, string>, double>> model) //מקבל מודל אם כול השורות של הקבוץ הבונה כדי להשתמש בדיקט
         {
@@ -17,7 +18,8 @@ namespace Specification_System.classifications
             foreach (Dictionary<string, string> row in allRows)
             {
                 string labelResoult = modelBuilder.Predict(model, row);
-                consule.Output(labelResoult);
+                
+                outputOption.Output(labelResoult);
             }
         }
     }
