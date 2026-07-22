@@ -7,10 +7,12 @@ namespace Specification_System
         {
             //ModelBuilding m = new ModelBuilding();
             //m.L();
-
+            InputUser u = new InputUser();
             InputCsv lo = new InputCsv();
-            List< string[]> rows = lo.load();
-             lo.loadRows(rows);
+            string filePath = "tenisStats.csv";
+            List< string[]> rows = lo.load(filePath);
+            List<Dictionary<string, string>> rowsUser =  u.LoadDict(rows);
+            //foreach (Dictionary<string,string> row in rowsUser ) Console.WriteLine(row["Outlook"]);
 
         }
     }
