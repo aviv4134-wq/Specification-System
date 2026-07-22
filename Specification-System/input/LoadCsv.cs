@@ -4,15 +4,15 @@ using System.Text;
 
 namespace Specification_System.input
 {
-    class InputCsv : IoadInput //for build
+    class InputCsv : IoadInput 
     {
-
         public List<string[]> load(string fileName)
         {
             string folderPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelbuild", fileName));
             string[] allRows = File.ReadAllLines(folderPath);
 
             List<string[]> rows = new List<string[]>();
+
             foreach (string row in allRows )
             {
                 string[] rowSplited  = row.Split();
