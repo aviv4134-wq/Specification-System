@@ -9,6 +9,7 @@ namespace Specification_System.output
         public void Output()
         {
 
+
         }
 
     }

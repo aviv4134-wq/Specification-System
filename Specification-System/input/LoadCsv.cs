@@ -4,21 +4,36 @@ using System.Text;
 
 namespace Specification_System.input
 {
-    class InputCsv : IoadInput 
+    class InputCsv : IoadInput //for build process the csv input files
     {
-        public List<string[]> load(string fileName)
+
+        public List<string[]>? load(string fileName)
         {
-            string folderPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelbuild", fileName));
-            string[] allRows = File.ReadAllLines(folderPath);
-
-            List<string[]> rows = new List<string[]>();
-
-            foreach (string row in allRows )
+            try
             {
-                string[] rowSplited  = row.Split();
-                rows.Add(rowSplited);
+                string folderPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "modelbuild", fileName));
+                string[] allRows = File.ReadAllLines(folderPath);
+
+                List<string[]> rows = new List<string[]>();
+                foreach (string row in allRows)
+                {
+                    string[] rowSplited = row.Split();
+                    rows.Add(rowSplited);
+                }
+                return rows;
             }
-            return rows;
+
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("ERORR: File not found");
+                return null;
+            }
+
+            catch (FileLoadException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public string GetLabelName(string[] allRows)

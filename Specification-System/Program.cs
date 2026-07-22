@@ -8,7 +8,7 @@ namespace Specification_System
         {
             //ModelBuilding m = new ModelBuilding();
             //m.L();
-
+            InputUser u = new InputUser();
             InputCsv lo = new InputCsv();
             List< string[]> rows = lo.load();
             var l =  lo.loadRows(rows);
